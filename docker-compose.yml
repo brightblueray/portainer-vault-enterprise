@@ -1,0 +1,38 @@
+# Docker Compose for Vault Container Stack
+version: "3.8"
+services:
+  vault:
+    #image: hashicorp/vault-enterprise:1.11.1-ent
+    image: hashicorp/vault-enterprise
+    #vault:latest
+    container_name: vault-primary
+    ports:
+      - 8200:8200
+    environment:
+      - vaultpath="//Users/rryjewski/sandbox/docker_storage/vaultdocker"
+    volumes:
+      - type: bind
+        source: ${vaultpath}/config
+        target: /vault/config
+      - type: bind
+        source: ${vaultpath}/data
+        target: /vault/data
+      - type: bind
+        source: ${vaultpath}/file
+        target: /vault/file
+      - type: bind
+        source: ${vaultpath}/logs
+        target: /vault/logs
+      - type: bind
+        source: ${vaultpath}/license
+        target: /vault/license
+    environment:
+      - VAULT_ADDR=http://localhost:8200
+    cap_add:
+      - IPC_LOCK
+    command: vault server -config=/vault/config/vault.hcl && export VAULT_ADDR=http://127.0.0.1:8200
+
+networks: 
+  default: 
+    external: 
+      name: hashi-bridge
