@@ -5,7 +5,7 @@ services:
     #image: hashicorp/vault-enterprise:1.11.1-ent
     image: hashicorp/vault-enterprise
     #vault:latest
-    container_name: vault-primary
+    container_name: vault-ent
     ports:
       - 8200:8200
     environment:
