@@ -8,8 +8,6 @@ services:
     container_name: vault-ent
     ports:
       - 8200:8200
-    environment:
-      - vaultpath="//Users/rryjewski/sandbox/docker_storage/vaultdocker"
     volumes:
       - type: bind
         source: ${vaultpath}/config
