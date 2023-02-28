@@ -34,3 +34,5 @@ networks:
   default: 
     external: 
       name: hashi-bridge
+
+# eg vaultpath=//Users/rryjewski/sandbox/docker_storage/vaultdocker
