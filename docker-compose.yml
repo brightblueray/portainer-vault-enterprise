@@ -30,9 +30,9 @@ services:
       - IPC_LOCK
     command: vault server -config=/vault/config/vault.hcl && export VAULT_ADDR=http://127.0.0.1:8200
 
-networks: 
-  default: 
-    external: 
-      name: hashi-bridge
+#networks: 
+#  default: 
+#    external: 
+#      name: hashi-bridge
 
 # eg vaultpath=//Users/rryjewski/sandbox/docker_storage/vaultdocker
